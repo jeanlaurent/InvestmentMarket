@@ -3,12 +3,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class QuotationFetcher {
+public class AllQuotations {
 
     private final Scanner scanner;
     private int numberOfQuotation;
 
-    public QuotationFetcher(InputStream input) {
+    public AllQuotations(InputStream input) {
         scanner = new Scanner(input);
         numberOfQuotation = scanner.nextInt();
     }
@@ -17,9 +17,9 @@ public class QuotationFetcher {
         return numberOfQuotation > 0;
     }
 
-    public Quotation fetch() {
+    public Quote next() {
         numberOfQuotation--;
-        return new Quotation(fetchAmount(), fetchMarketPrices());
+        return new Quote(fetchAmount(), fetchMarketPrices());
     }
 
     private int fetchAmount() {

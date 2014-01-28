@@ -3,7 +3,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class Quotation {
+public class Quote {
     public static final int MAX_MONTH = 12;
     private final int amount;
     private final List<Integer> marketPrices;
