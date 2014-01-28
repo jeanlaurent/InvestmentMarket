@@ -18,7 +18,7 @@ public class Quote {
                 }
             }
         }
-        return (bestInvestPlan);
+        return bestInvestPlan;
     }
 
     private InvestPlan getInvestPlanFor(int buyMonth, int sellMonth) {

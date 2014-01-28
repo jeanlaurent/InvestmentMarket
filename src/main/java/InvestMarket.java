@@ -7,10 +7,10 @@ import java.util.List;
 
 import static com.google.common.base.Charsets.*;
 
-public class InvestPlanComputer {
+public class InvestMarket {
 
     public static void main(String[] args) {
-        System.out.println(new InvestPlanComputer().compute(System.in));
+        System.out.println(new InvestMarket().compute(System.in));
     }
 
     public String compute(InputStream inputStream) {

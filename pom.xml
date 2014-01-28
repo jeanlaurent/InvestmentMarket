@@ -81,7 +81,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>InvestPlanComputer</mainClass>
+                            <mainClass>InvestMarket</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
