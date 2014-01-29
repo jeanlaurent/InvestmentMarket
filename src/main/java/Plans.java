@@ -4,21 +4,21 @@ import java.util.List;
 import static com.google.common.base.Joiner.on;
 
 public class Plans {
-    private List<InvestPlan> investPlans;
+    private List<Plan> allPlans;
 
     public Plans() {
-        investPlans = new ArrayList<>();
+        allPlans = new ArrayList<>();
     }
 
-    public void add(InvestPlan bestInvestPlan) {
-        investPlans.add(bestInvestPlan);
+    public void add(Plan bestPlan) {
+        allPlans.add(bestPlan);
     }
 
     public String toString() {
         List<String> plansAsString = new ArrayList<>();
         int i = 1;
-        for (InvestPlan investPlan : investPlans) {
-            plansAsString.add("Case #" + (i++) + ": " + investPlan.toString());
+        for (Plan plan : allPlans) {
+            plansAsString.add("Case #" + (i++) + ": " + plan.toString());
         }
         return on("\n").join(plansAsString);
     }

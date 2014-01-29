@@ -8,23 +8,23 @@ public class Quote {
     private final int amount;
     private final List<Integer> marketPrices;
 
-    public InvestPlan computeBestPlanFor1Year() {
-        InvestPlan bestInvestPlan = new BadInvestPlan();
+    public Plan computeBestPlanFor1Year() {
+        Plan bestPlan = new BadPlan();
         for (int buyMonth = 1; buyMonth <= MAX_MONTH - 1; buyMonth++) {
             for (int sellMonth = buyMonth + 1; sellMonth <= MAX_MONTH; sellMonth++) {
-                InvestPlan investPlan = getInvestPlanFor(buyMonth, sellMonth);
-                if (investPlan.isBetterThan(bestInvestPlan)) {
-                    bestInvestPlan = investPlan;
+                Plan plan = getInvestPlanFor(buyMonth, sellMonth);
+                if (plan.isBetterThan(bestPlan)) {
+                    bestPlan = plan;
                 }
             }
         }
-        return bestInvestPlan;
+        return bestPlan;
     }
 
-    private InvestPlan getInvestPlanFor(int buyMonth, int sellMonth) {
+    private Plan getInvestPlanFor(int buyMonth, int sellMonth) {
         int buyPrice = marketPrices.get(buyMonth - 1);
         int sellPrice = marketPrices.get(sellMonth - 1);
         int profit = (amount / buyPrice) * (sellPrice - buyPrice);
-        return new InvestPlan(buyMonth, sellMonth, profit);
+        return new Plan(buyMonth, sellMonth, profit);
     }
 }

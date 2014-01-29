@@ -3,22 +3,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AllQuotations {
+public class AllQuotes {
 
+    private static final int MAX_MONTH = 12;
     private final Scanner scanner;
-    private int numberOfQuotation;
+    private int numberOfQuotes;
 
-    public AllQuotations(InputStream input) {
+    public AllQuotes(InputStream input) {
         scanner = new Scanner(input);
-        numberOfQuotation = scanner.nextInt();
+        numberOfQuotes = scanner.nextInt();
     }
 
     public boolean hasNext() {
-        return numberOfQuotation > 0;
+        return numberOfQuotes > 0;
     }
 
     public Quote next() {
-        numberOfQuotation--;
+        numberOfQuotes--;
         return new Quote(fetchAmount(), fetchMarketPrices());
     }
 
@@ -27,8 +28,8 @@ public class AllQuotations {
     }
 
     private List<Integer> fetchMarketPrices() {
-        List<Integer> marketPrices = new ArrayList();
-        for (int i = 1; i <= 12; i++) {
+        List<Integer> marketPrices = new ArrayList< >();
+        for (int i = 0; i < MAX_MONTH; i++) {
             marketPrices.add(scanner.nextInt());
         }
         return marketPrices;

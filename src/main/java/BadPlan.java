@@ -1,6 +1,6 @@
-public class BadInvestPlan extends InvestPlan {
+public class BadPlan extends Plan {
 
-    public BadInvestPlan() {
+    public BadPlan() {
         super(-1, -1, 0);
     }
 

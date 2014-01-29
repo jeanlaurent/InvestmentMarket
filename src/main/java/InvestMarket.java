@@ -14,29 +14,28 @@ public class InvestMarket {
     }
 
     public String compute(InputStream inputStream) {
-        return computeAllBestPlans(readAllQuotations(inputStream));
+        return computeAllBestPlans(readAllQuotations(inputStream)).toString();
     }
 
     @VisibleForTesting
     String compute(String input) {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(UTF_8));
-        return computeAllBestPlans(readAllQuotations(inputStream));
+        return computeAllBestPlans(readAllQuotations(inputStream)).toString();
     }
 
-    private List<Quote> readAllQuotations(InputStream input) {
+    public List<Quote> readAllQuotations(InputStream input) {
         List<Quote> quotes = new ArrayList<>();
-        AllQuotations allQuotations = new AllQuotations(input);
-        while (allQuotations.hasNext()) {
-            quotes.add(allQuotations.next());
+        AllQuotes allQuotes = new AllQuotes(input);
+        while (allQuotes.hasNext()) {
+            quotes.add(allQuotes.next());
         }
         return quotes;
     }
 
-    public String computeAllBestPlans(List<Quote> quotes) {
+    public Plans computeAllBestPlans(List<Quote> quotes) {
         Plans plans = new Plans();
         quotes.forEach(quote -> plans.add(quote.computeBestPlanFor1Year()));
-        return plans.toString();
+        return plans;
     }
-
 
 }
